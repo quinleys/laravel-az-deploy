@@ -147,6 +147,7 @@ class WhoController extends Controller
                 $database->getReference('who_is_who/'.$id)->update([
                     'title' => $request->get('title'),
                     'description' => $request->get('description'),
+                    'tags' => $request->get('tags'),
                 ]); 
         
                 notify()->success('Character updated successfully');

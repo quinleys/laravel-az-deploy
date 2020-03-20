@@ -38,6 +38,10 @@
     <label for="description">Description</label>
     <textarea class="form-control" name="description" id="exampleFormControlTextarea1" >{{$post['description']}}</textarea>
   </div>
+  <div class="form-group">
+    <label for="tags">Tags</label>
+    <textarea class="form-control" name="tags" id="exampleFormControlTextarea1" >{{$post['tags']}}</textarea>
+  </div>
   <img height="100px" src="{{url('/uploads/'.$post['image'])}}" alt="{{$post['image']}}">
   <div class="form-group">
     <label for="exampleFormControlFile1">File input</label>
