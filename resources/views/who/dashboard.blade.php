@@ -32,6 +32,7 @@
         <tr>
             <th>Title</th>
             <th>Description</th>
+            <th>Tags</th>
             <th>Image</th>
             <th>Audio</th>
             <th>Actions</th>
@@ -42,6 +43,7 @@
             <tr>
                 <td>{{$post['title']}}</td>
                 <td>{{$post['description']}}</td>
+                <td>{{$post['tags']}}</td>
                 <td><img height="100px" src="{{url('/uploads/'.$post['image'])}}" alt="{{$post['image']}}"></td>
                 <td>{{$post['audio']}}</td>
                 <td>
