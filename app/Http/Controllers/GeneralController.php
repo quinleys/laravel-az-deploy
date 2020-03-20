@@ -80,7 +80,7 @@ class GeneralController extends Controller
                 $file = $request->file('audio');
                 $extension = $file->getClientOriginalExtension();
                 $name = $id .'.'. $extension;
-
+                $fullpathname = 'audios/' . $name;
                 $path = Storage::disk('public')->putFileAs('', $file, $name);
                 $content = Storage::disk('public')->get($path);
                 
@@ -89,7 +89,7 @@ class GeneralController extends Controller
                 $defaultBucket->upload(
                     $content,
                     [
-                        'name' => $name
+                        'name' => $fullpathname
                     ]);
                     $database->getReference('general/'.$id)->update([
                         'audio' => $name

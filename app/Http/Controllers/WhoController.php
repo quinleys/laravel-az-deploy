@@ -93,32 +93,57 @@ class WhoController extends Controller
 
         if ($request->hasFile('file') || $request->hasFile('audio')) {
                 if($request->hasFile('audio')){
+
+                    $validator = Validator::make($request->hasFile('audio'), [
+                        'audio' => 'required|mimes:mpga',
+                    ]);
+            
+                        if($validator->fails()){
+                            notify()->error('Audio not updated successfully');
+                            return redirect()->back();
+                            //return redirect()->back()->withErrors($validator)->withInput();
+                        }else {
                     $file = $request->file('audio');
                     $extension = $file->getClientOriginalExtension();
                     $name = $id .'.'. $extension;
 
-                $path = Storage::disk('public')->putFileAs('', $file, $name);
-                $content = Storage::disk('public')->get($path);
-                
-                $defaultBucket = $storage->getBucket();
-
-                $defaultBucket->upload(
-                    $content,
-                    [
-                        'name' => $name
-                    ]);
-                    $database->getReference('who_is_who/'.$id)->update([
-                        'audio' => $name
-                    ]);
-                
+                    $path = Storage::disk('public')->putFileAs('', $file, $name);
+                    $content = Storage::disk('public')->get($path);
+                    
+                    $defaultBucket = $storage->getBucket();
+                    $fullpathname = 'audios/' . $name;
+                    $defaultBucket->upload(
+                        $content,
+                        [
+                            'name' => $fullpathname
+                        ]);
+                        $database->getReference('who_is_who/'.$id)->update([
+                            'audio' => $name
+                        ]);
+                    }
                 }
                 if($request->hasFile('file')){
+                    if($id == '1'){
+                        $name = "photo_doctor_image";
+                    }else if ($id == '2'){
+                        $name = "kid_doctor_image";
+                    }else if($id == "3"){
+                        $name ="clown_image";
+                    }else if($id == "4"){
+                        $name ="sleep_doctor_image";
+                    }else if($id == "5"){
+                        $name ="nurse_image";
+                    }else if($id == "6"){
+                        $name ="game_leader_image";
+                    }else if($id == "7"){
+                        $name ="kid_psychology_image";
+                    }
                     $file = $request->file('file');
                     $name = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 //$path = $request->file('file')->store('upload');
-        
-                $path = Storage::disk('public')->putFileAs('', $file, $name);
+                $fullpathname = 'images/persons/' . $name;
+                $path = Storage::disk('public')->putFileAs('', $file, $name.$extension);
                 $content = Storage::disk('public')->get($path);
                 
                 $defaultBucket = $storage->getBucket();
@@ -126,7 +151,7 @@ class WhoController extends Controller
                 $defaultBucket->upload(
                     $content,
                     [
-                        'name' => $name
+                        'name' => $fullpathname 
                     ]);
                     $database->getReference('who_is_who/'.$id)->update([
                         'image' => $name

@@ -84,7 +84,7 @@ class GamesController extends Controller
                 $file = $request->file('audio');
                 $extension = $file->getClientOriginalExtension();
                 $name = $id .'.'. $extension;
-                
+                $fullpathname = 'audios/' . $name;
 
                 $path = Storage::disk('public')->putFileAs('', $file, $name);
                 $content = Storage::disk('public')->get($path);
@@ -94,7 +94,7 @@ class GamesController extends Controller
                 $defaultBucket->upload(
                     $content,
                     [
-                        'name' => $name
+                        'name' => $fullpathname
                     ]);
                     $database->getReference('games/'.$id)->update([
                         'audio' => $name
