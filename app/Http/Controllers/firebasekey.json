@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "az-sint-lucas-gent",
+  "private_key_id": "36b2c9562da2e9e9aa466bc7d7433ad75a4fbcce",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDj385gDXvjKTYe\nsbk+n7LBaQV5wrGtSy/HF0TIvq9/cITYwfwFJv9RfM3q5kG8SJ6FNntO9ZMGIp7b\nElZK+3V7Rz8pabXL0FalAQnlSM2T7u37JtD6UyAlYNzTyy2vUcV+0KCONnk1A533\nfRdVLU4p9VB47eufV2/Q4hJclks+t9540aTO/eze4nSBUVwisen54nBT5+TrGNJT\n+UIlKNpaRpfE+t7BxJEpWB5qvmLDRBmxgthZGM2YwVjqG7CHXRXu7pJV0vBRjFqm\nYcs1NccEdNzPzxFCpsK/Q7gTqkqJj6B0lobKK+EHRVAlN4n63IJQPdyqnEstpgig\nK6DNrswlAgMBAAECggEAAgLvPOzRi6NI/YNfGbzqJIfrSvRbgiaYQN8lNcptHShe\nm9U2hssd1NfPr4Ohz+oqMA3Xj85eIl863L8wMNBAbLqnxZNPzgFESoeUUUhPvD8P\nLbjdfmAud/X/bQUtnY8QubpYuHiloECsa8tYYeGY/4jRUYf0HP92FrdwJw4Skvaj\nRXCMlTdofd/aEP0tf5MERvIi9EyjDeM/Vv8Q0Hx+34NKI/98118bsqiJ3UzIdvJJ\ncb5ikeB/yKLtqUnAKYhBhEyqAVrnB07dVxNqridP85kYyxNaFW0cRDF5Ewwe/J/g\nu2e5cmgIukZPCC2FhlSEX/Xtqlr8absKOo9MtdjU/wKBgQD5aelp1KRVz/F5B4wZ\n1K3PchQ3HsP6DTrco6v2xRFA3xND+HdkLSkshJHN6DEmSgFbRrttD8x1SunuGcM6\niktok8zpa+w8PzeOifnmMPtgXcRt/roPj+43j+wV5xd5zqut8lJ1+TcEsWN/sCjL\nHabcdyLihOYaM0x15utlt9XoHwKBgQDp5Eh4JmKR2CM8J5MJxX2kZKnCaxZ8OY6l\ntIw3cFQQ9Xx/QpxUzpmXox8HyUpMTY+R7hATVFSuiUReGyvJuLw/leg31yJ+4Cbu\nNi4IKoJ8X90tBpAt09MCiC8GLO31yxo4TWdP0WhM0jcV8H9/3r1pdBNl/13J/svD\nIse+q9gTOwKBgEFOQhe73eu6LvgJyd1ZmskejbyBCb+Hh0oOcRCEOShLQLgjbt+E\nE6vcanEHwxbLed90fc7ovBhaLTZy+HNzkpsnWBgmcgy0YM+pwQ1M9gUdiDlk4UMB\n5NYXkTGK+NKkEr/RG1ZYktdfuzXL4mKMuQwxBalaMwXZOMQGWsyffhrxAoGBAOfa\nmlQwiOnWfic1e7bmBQSfnQDTMzj1vYhaD90tBsjA8SceGuae3vbIhwwq5/H3uOiK\nO3lN0ZwrCpDXEnMnI8VMjyQ7qUBoZ28gWkVSDoPIa/IkXWxwXO5XnXXbuBA9w8Io\nSM+A4Im2oVCoVVumq9ELdedYW9rPL6JCqgtDQjDdAoGALoJF12f0U3Zcw0Lzd2Nl\nEY91yIbwDPPGUTmGkte6aOuhwsE1uyFxpAd6IQL8JE40rkIxHhZ8K5+OUJcWilkE\nJfaDuDxe7zOhKOnMxMLSG2stFiA4hBSjmWSSCSCHjsdYoA8Q9N5R4hZjak8TVH28\nq+B/rjuxBRtwG7b1/sh2Uis=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-hq3b4@az-sint-lucas-gent.iam.gserviceaccount.com",
+  "client_id": "110712672537504080728",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-hq3b4%40az-sint-lucas-gent.iam.gserviceaccount.com",
+  "storageBucket": "az-sint-lucas-gent.appspot.com"
+}
