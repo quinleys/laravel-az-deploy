@@ -123,11 +123,12 @@ class WhoController extends Controller
                     }
                 }
                 if($request->hasFile('file')){
-                    $file = $request->file('file');
-                    $name = $file->getClientOriginalName();
+                
+                $file = $request->file('file');
+                $name = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 //$path = $request->file('file')->store('upload');
-        
+                $fullpathname = 'images/persons/' . $name;
                 $path = Storage::disk('public')->putFileAs('', $file, $name);
                 $content = Storage::disk('public')->get($path);
                 
@@ -136,7 +137,7 @@ class WhoController extends Controller
                 $defaultBucket->upload(
                     $content,
                     [
-                        'name' => $name
+                        'name' => $fullpathname
                     ]);
                     $database->getReference('who_is_who/'.$id)->update([
                         'image' => $name
