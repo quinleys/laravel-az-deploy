@@ -123,26 +123,11 @@ class WhoController extends Controller
                     }
                 }
                 if($request->hasFile('file')){
-                    if($id == '1'){
-                        $name = "photo_doctor_image";
-                    }else if ($id == '2'){
-                        $name = "kid_doctor_image";
-                    }else if($id == "3"){
-                        $name ="clown_image";
-                    }else if($id == "4"){
-                        $name ="sleep_doctor_image";
-                    }else if($id == "5"){
-                        $name ="nurse_image";
-                    }else if($id == "6"){
-                        $name ="game_leader_image";
-                    }else if($id == "7"){
-                        $name ="kid_psychology_image";
-                    }
                     $file = $request->file('file');
                     $name = $file->getClientOriginalName();
-                    $extension = $file->getClientOriginalExtension();
+                $extension = $file->getClientOriginalExtension();
                 //$path = $request->file('file')->store('upload');
-                $fullpathname = 'images/persons/' . $name;
+        
                 $path = Storage::disk('public')->putFileAs('', $file, $name);
                 $content = Storage::disk('public')->get($path);
                 
@@ -151,14 +136,13 @@ class WhoController extends Controller
                 $defaultBucket->upload(
                     $content,
                     [
-                        'name' => $fullpathname 
+                        'name' => $name
                     ]);
                     $database->getReference('who_is_who/'.$id)->update([
                         'image' => $name
                     ]);
+                    }
                 }
-                }
-
                 $database->getReference('who_is_who/'.$id)->update([
                     'title' => $request->get('title'),
                     'description' => $request->get('description'),
