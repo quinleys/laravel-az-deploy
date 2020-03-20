@@ -39,7 +39,7 @@
     <textarea class="form-control" name="description" id="exampleFormControlTextarea1" >{{$post['description']}}</textarea>
   </div>
   <div class="form-group">
-    <label for="tags">Tags</label>
+    <label for="tags">Tags (max 7 woorden en gescheiden door een komma zonder spatie)</label>
     <textarea class="form-control" name="tags" id="exampleFormControlTextarea1" >{{$post['tags']}}</textarea>
   </div>
   <img height="100px" src="{{url('/uploads/'.$post['image'])}}" alt="{{$post['image']}}">
