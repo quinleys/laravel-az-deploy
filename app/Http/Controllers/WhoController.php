@@ -140,10 +140,10 @@ class WhoController extends Controller
                     }
                     $file = $request->file('file');
                     $name = $file->getClientOriginalName();
-                $extension = $file->getClientOriginalExtension();
+                    $extension = $file->getClientOriginalExtension();
                 //$path = $request->file('file')->store('upload');
                 $fullpathname = 'images/persons/' . $name;
-                $path = Storage::disk('public')->putFileAs('', $file, $name.$extension);
+                $path = Storage::disk('public')->putFileAs('', $file, $name);
                 $content = Storage::disk('public')->get($path);
                 
                 $defaultBucket = $storage->getBucket();
