@@ -168,14 +168,14 @@ class WhoController extends Controller
                     $content = Storage::disk('public')->get($path);
                     
                     $defaultBucket = $storage->getBucket();
-                    $fullpathname = 'audios/' . $name;
+                    $fullpathname = 'audios/' . $fullname;
                     $defaultBucket->upload(
                         $content,
                         [
                             'name' => $fullpathname
                         ]);
                         $database->getReference('who_is_who/'.$id)->update([
-                            'audio-tags' => 'test'
+                            'audio-tags' => $fullname
                         ]);
                     }
                 
