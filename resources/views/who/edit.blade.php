@@ -52,9 +52,9 @@
     <label for="exampleFormControlFile1">Audio input</label>
     <input type="file" name="audio" class="form-control-file" id="exampleFormControlFile1">
   </div>
-  <p>{{$post['audio-tags']}} ?? No Tags audio </p>
+  <p>{{$post['audio-tags']}}</p>
   <div class="form-group">
-    <label for="exampleFormControlFile1">Audio input</label>
+    <label for="exampleFormControlFile1">Audio Tags input</label>
     <input type="file" name="audio-tags" class="form-control-file" id="exampleFormControlFile1">
   </div>
     <button type="submit" class="btn btn-primary">Submit</button>
