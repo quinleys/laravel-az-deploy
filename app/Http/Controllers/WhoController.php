@@ -91,7 +91,7 @@ class WhoController extends Controller
             'projectId' => 'az-sint-lucas-gent'
         ]);
 
-        if ($request->hasFile('file') || $request->hasFile('audio')) {
+        if ($request->hasFile('file') || $request->hasFile('audio') || $request->hasFile('audio-tags')) {
                 if($request->hasFile('audio')){
 
                     $validator = Validator::make($request->hasFile('audio'), [
@@ -142,6 +142,35 @@ class WhoController extends Controller
                     $database->getReference('who_is_who/'.$id)->update([
                         'image' => $name
                     ]);
+                    }
+                }if($request->hasFile('audio-tags')){
+
+                    $validator = Validator::make($request->hasFile('audio'), [
+                        'audio' => 'required|mimes:mpga',
+                    ]);
+            
+                        if($validator->fails()){
+                            notify()->error('Audio not updated successfully');
+                            return redirect()->back();
+                            //return redirect()->back()->withErrors($validator)->withInput();
+                        }else {
+                    $file = $request->file('audio-tags');
+                    $extension = $file->getClientOriginalExtension();
+                    $name = $id .'.'. $extension;
+
+                    $path = Storage::disk('public')->putFileAs('', $file, $name);
+                    $content = Storage::disk('public')->get($path);
+                    
+                    $defaultBucket = $storage->getBucket();
+                    $fullpathname = 'audios/' . $name;
+                    $defaultBucket->upload(
+                        $content,
+                        [
+                            'name' => $fullpathname
+                        ]);
+                        $database->getReference('who_is_who/'.$id)->update([
+                            'audio' => $name
+                        ]);
                     }
                 }
                 $database->getReference('who_is_who/'.$id)->update([

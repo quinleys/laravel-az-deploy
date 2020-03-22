@@ -52,6 +52,11 @@
     <label for="exampleFormControlFile1">Audio input</label>
     <input type="file" name="audio" class="form-control-file" id="exampleFormControlFile1">
   </div>
+  <p>{{$post['audio-tags' ?? No Tags audio]}}</p>
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Audio input</label>
+    <input type="file" name="audio-tags" class="form-control-file" id="exampleFormControlFile1">
+  </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     <a href="/whoiswho" class="btn btn-danger">Cancel </a>
 </form>

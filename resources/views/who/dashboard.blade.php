@@ -35,6 +35,7 @@
             <th>Tags</th>
             <th>Image</th>
             <th>Audio</th>
+            <th>Audio Tags</th>
             <th>Actions</th>
             </tr>
             </thead>
@@ -46,6 +47,7 @@
                 <td>{{$post['tags']}}</td>
                 <td><img height="100px" src="{{url('/uploads/'.$post['image'])}}" alt="{{$post['image']}}"></td>
                 <td>{{$post['audio']}}</td>
+                <td>{{$post['audio-tags']}}</td>
                 <td>
                 <a class="btn btn-primary" href="/whoiswho/{{$post['id']}}/edit" role="button">Edit</a>
                 </td>
