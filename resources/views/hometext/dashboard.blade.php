@@ -14,7 +14,7 @@
            <a href="/home">Home</a>
            </li>
            <li class="breadcrumb-item active">
-            Home Text
+            Home Audio
            </li>
            </ol>
         </div>
@@ -30,14 +30,16 @@
         <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
-            <th>Title</th>
+        <th>id</th>
+            <th>Audio</th>
             <th>Actions</th>
             </tr>
             </thead>
             <tbody>
             @foreach($all_post as $post)
             <tr>
-                <td>{{$post['title']}}</td>
+            <td>{{$post['id']}}</td>
+                <td>{{$post['audio']}}</td>
                 <td>
                 <a class="btn btn-primary" href="/hometext/{{$post['id']}}/edit" role="button">Edit</a>
                 </td>

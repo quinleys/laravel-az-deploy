@@ -77,11 +77,21 @@ class GeneralController extends Controller
             }else {
                 if ( $request->hasFile('audio')){
 
+                if($id =="geluidaan"){
+                    $name = 'sound_on';
+                }if($id =="geluiduit"){
+                    $name = 'sound_off';
+                }if($id =="normal_site"){
+                    $name = 'normal_site';
+                }if($id =="return"){
+                    $name = 'return';
+                }
+
                 $file = $request->file('audio');
                 $extension = $file->getClientOriginalExtension();
-                $name = $id .'.'. $extension;
-                $fullpathname = 'audios/' . $name;
-                $path = Storage::disk('public')->putFileAs('', $file, $name);
+                $fullname = $name .'.'. $extension;
+                $fullpathname = 'audios/' . $fullname;
+                $path = Storage::disk('public')->putFileAs('', $file, $fullname);
                 $content = Storage::disk('public')->get($path);
                 
                 $defaultBucket = $storage->getBucket();
@@ -92,7 +102,7 @@ class GeneralController extends Controller
                         'name' => $fullpathname
                     ]);
                     $database->getReference('general/'.$id)->update([
-                        'audio' => $name
+                        'audio' => $fullname
                     ]);
                 
 

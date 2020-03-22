@@ -14,7 +14,7 @@
            <a href="/home">Home</a>
            </li>
            <li class="breadcrumb-item">
-           <a href="/hometext">Home Text</a>
+           <a href="/hometext">Home Audio</a>
            </li>
            <li class="breadcrumb-item active">
            Edit {{$post['title']}}

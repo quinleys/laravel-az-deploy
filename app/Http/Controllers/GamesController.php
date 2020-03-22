@@ -80,13 +80,21 @@ class GamesController extends Controller
                 //return redirect()->back()->withErrors($validator)->withInput();
             }else {
                 if ( $request->hasFile('audio')){
-
+                if($id == 'Lichaam'){
+                    $name = 'body';
+                }if($id == 'Memory'){
+                    $name = 'memory';
+                }if($id == 'Virusspel'){
+                    $name = 'virus';
+                }if($id == 'WatNeemIkMee'){
+                    $name = 'baf';
+                }
                 $file = $request->file('audio');
                 $extension = $file->getClientOriginalExtension();
-                $name = $id .'.'. $extension;
-                $fullpathname = 'audios/' . $name;
+                $fullname = $name .'.'. $extension;
+                $fullpathname = 'audios/' . $fullname;
 
-                $path = Storage::disk('public')->putFileAs('', $file, $name);
+                $path = Storage::disk('public')->putFileAs('', $file, $fullname);
                 $content = Storage::disk('public')->get($path);
                 
                 $defaultBucket = $storage->getBucket();
@@ -97,7 +105,7 @@ class GamesController extends Controller
                         'name' => $fullpathname
                     ]);
                     $database->getReference('games/'.$id)->update([
-                        'audio' => $name
+                        'audio' => $fullname
                     ]);
                 
 
