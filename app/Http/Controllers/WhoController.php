@@ -93,7 +93,21 @@ class WhoController extends Controller
 
         if ($request->hasFile('file') || $request->hasFile('audio') || $request->hasFile('audio-tags')) {
                 if($request->hasFile('audio')){
-
+                    if($id == '1'){
+                        $name = 'photo_doctor_title';
+                    }if($id == '2'){
+                        $name = "kid_doctor_title";
+                    }if($id == '3'){
+                        $name = "clown_title";
+                    }if($id == '4'){
+                        $name = "sleep_doctor_title";
+                    }if($id == '5'){
+                        $name = "nurse_title";
+                    }if($id == '6'){
+                        $name = "game_leader_title";
+                    }if($id == '7'){
+                        $name = "kid_psychology_title";
+                    }
                     $validator = Validator::make($request->hasFile('audio'), [
                         'audio' => 'required|mimes:mpga',
                     ]);
@@ -123,11 +137,28 @@ class WhoController extends Controller
                     }
                 }
                 if($request->hasFile('file')){
-                
+                    if($id == '1'){
+                        $name = 'photo_doctor_image';
+                    }if($id == '2'){
+                        $name = "kid_doctor_image";
+                    }if($id == '3'){
+                        $name = "clown_image";
+                    }if($id == '4'){
+                        $name = "sleep_doctor_image";
+                    }if($id == '5'){
+                        $name = "nurse_image";
+                    }if($id == '6'){
+                        $name = "game_leader_image";
+                    }if($id == '7'){
+                        $name = "kid_psychology_image";
+                    }
                 $file = $request->file('file');
-                $name = $file->getClientOriginalName();
+                //$name = $file->getClientOriginalName();
+
+                
                 $extension = $file->getClientOriginalExtension();
                 //$path = $request->file('file')->store('upload');
+                $fullname = $name.'.'.$extension;
                 $fullpathname = 'images/persons/' . $name;
                 $path = Storage::disk('public')->putFileAs('', $file, $name);
                 $content = Storage::disk('public')->get($path);
@@ -140,7 +171,7 @@ class WhoController extends Controller
                         'name' => $fullpathname
                     ]);
                     $database->getReference('who_is_who/'.$id)->update([
-                        'image' => $name
+                        'image' => $fullname
                     ]);
                     }
                 }if($request->hasFile('audio-tags')){
