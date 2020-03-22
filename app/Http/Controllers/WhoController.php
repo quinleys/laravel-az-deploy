@@ -175,7 +175,7 @@ class WhoController extends Controller
                             'name' => $fullpathname
                         ]);
                         $database->getReference('who_is_who/'.$id)->update([
-                            'audio-tags' => $fullname
+                            'audio-tags' => 'test'
                         ]);
                     }
                 
