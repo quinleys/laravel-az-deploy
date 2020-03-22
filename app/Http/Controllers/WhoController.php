@@ -164,7 +164,7 @@ class WhoController extends Controller
                             'audio' => $name
                         ]);
                     }
-                }
+                
                 $database->getReference('who_is_who/'.$id)->update([
                     'title' => $request->get('title'),
                     'description' => $request->get('description'),
