@@ -195,7 +195,7 @@ return [
                     'icon'        => 'far fa-fw fa-file',
                 ],
                 [
-                    'text'        => 'Home Text',
+                    'text'        => 'Home Audio',
                     'url'         => '/hometext',
                     'icon'        => 'far fa-fw fa-file',
                 ],
