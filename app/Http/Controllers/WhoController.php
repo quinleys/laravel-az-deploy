@@ -144,11 +144,25 @@ class WhoController extends Controller
                     ]);
                     }
                 }if($request->hasFile('audio-tags')){
-
+                    if($id == '1'){
+                        $name = 'photo_doctor_tags';
+                    }if($id == '2'){
+                        $name = "kid_doctor_tags";
+                    }if($id == '3'){
+                        $name = "clown_tags";
+                    }if($id == '4'){
+                        $name = "sleep_doctor_tags";
+                    }if($id == '5'){
+                        $name = "nurse_tags";
+                    }if($id == '6'){
+                        $name = "game_leader_tags";
+                    }if($id == '7'){
+                        $name = "kid_psychology_tags";
+                    }
     
                     $file = $request->file('audio-tags');
                     $extension = $file->getClientOriginalExtension();
-                    $name = $id .'.'. $extension;
+                    $fullname = $name .'.'. $extension;
 
                     $path = Storage::disk('public')->putFileAs('', $file, $name);
                     $content = Storage::disk('public')->get($path);
@@ -161,7 +175,7 @@ class WhoController extends Controller
                             'name' => $fullpathname
                         ]);
                         $database->getReference('who_is_who/'.$id)->update([
-                            'audio' => $name
+                            'audio-tags' => $name
                         ]);
                     }
                 
