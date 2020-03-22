@@ -145,15 +145,7 @@ class WhoController extends Controller
                     }
                 }if($request->hasFile('audio-tags')){
 
-                    $validator = Validator::make($request->hasFile('audio-tags'), [
-                        'audio-tags' => 'required|mimes:mpga',
-                    ]);
-            
-                        if($validator->fails()){
-                            notify()->error('Audio not updated successfully');
-                            return redirect()->back();
-                            //return redirect()->back()->withErrors($validator)->withInput();
-                        }else {
+    
                     $file = $request->file('audio-tags');
                     $extension = $file->getClientOriginalExtension();
                     $name = $id .'.'. $extension;
