@@ -112,7 +112,7 @@ class HomeTextController extends Controller
                 
 
                 notify()->success('Audio updated successfully');
-                return redirect()->route('general.index');
+                return redirect()->route('hometext.index');
                 }
                 
             }
