@@ -160,7 +160,7 @@ class WhoController extends Controller
                 //$path = $request->file('file')->store('upload');
                 $fullname = $name.'.'.$extension;
                 $fullpathname = 'images/persons/' . $name;
-                $path = Storage::disk('public')->putFileAs('', $file, $name);
+                $path = Storage::disk('public')->putFileAs('', $file, $fullname);
                 $content = Storage::disk('public')->get($path);
                 
                 $defaultBucket = $storage->getBucket();
